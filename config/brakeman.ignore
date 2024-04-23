@@ -1,0 +1,787 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "0118f296ae90349d91eda9d478138f0c67bf2975068ac2739ade98fca0ba0c37",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/thor-1.3.0/lib/thor/shell/basic.rb",
+      "line": 320,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "system(\"#{(ENV[\"THOR_DIFF\"] or (ENV[\"RAILS_DIFF\"] or \"diff -u\"))} \\\"#{destination}\\\" \\\"#{Tempfile.new.path}\\\"\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Thor::Shell::Thor::Basic",
+        "method": "show_diff"
+      },
+      "user_input": "ENV[\"THOR_DIFF\"]",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "0831b119a3ef489d53a2a464edd8067c9c072b57e02c09258a725885be889202",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/sentry-ruby-5.16.1/lib/sentry-ruby.rb",
+      "line": 554,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`#{command} 2>&1`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Sentry",
+        "method": "s(:self).sys_command"
+      },
+      "user_input": "command",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "0ffb536fbe305d68ef9db3c4c50f107024a2e4b151e119588fab6296775e3cc0",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/railties-7.0.8/lib/rails/commands/secrets/secrets_command.rb",
+      "line": 36,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "system(\"#{ENV[\"EDITOR\"]} #{tmp_path}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Rails::Command::SecretsCommand",
+        "method": "edit"
+      },
+      "user_input": "ENV[\"EDITOR\"]",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Denial of Service",
+      "warning_code": 76,
+      "fingerprint": "207929ce1fb2c6d1b74312d75a8cf8b1c92d35303d909d9da445181d1d57c56d",
+      "check_name": "RegexDoS",
+      "message": "Model attribute used in regular expression",
+      "file": "t/ruby/3.1.0/gems/actionpack-7.0.8/lib/action_dispatch/middleware/templates/rescues/invalid_statement.html.erb",
+      "line": 13,
+      "link": "https://brakemanscanner.org/docs/warning_types/denial_of_service/",
+      "code": "/#{ActiveStorage::Blob.table_name}|#{ActiveStorage::Attachment.table_name}/",
+      "render_path": null,
+      "location": {
+        "type": "template",
+        "template": "t/ruby/3.1.0/gems/actionpack-7.0.8/lib/action_dispatch/middleware/templates/rescues/invalid_statement"
+      },
+      "user_input": "ActiveStorage::Blob.table_name",
+      "confidence": "Medium",
+      "cwe_id": [
+        20,
+        185
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "224647d1fda66ccb6c6a062fc1a42a7a8ee5a0cf66c66991031dd3742d22f209",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/shakapacker-7.2.2/lib/shakapacker/compiler.rb",
+      "line": 85,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "Open3.capture3(webpack_env, \"#{optionalRubyRunner} '#{bin_shakapacker_path}'\", :chdir => File.expand_path(config.root_path))",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Shakapacker::Compiler",
+        "method": "run_webpack"
+      },
+      "user_input": "optionalRubyRunner",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "3ec5c37f252b82845bef3a2c7a2e7ba4500d24e0ac73d25d78bad3e590d19569",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/whenever-1.0.0/lib/whenever/command_line.rb",
+      "line": 67,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`#{\"#{options[:crontab_command]} -l #{\"-u #{options[:user]}\"}\"} 2> /dev/null`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Whenever::CommandLine",
+        "method": "read_crontab"
+      },
+      "user_input": "options[:crontab_command]",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "3eef42583ce2e97d0720a358e0fb24de3d852ebb6b129d99be795eae65be01cc",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/brakeman-6.1.1/bundle/ruby/3.0.0/gems/highline-2.1.0/lib/highline/terminal/unix_stty.rb",
+      "line": 41,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "system(\"stty #{@state}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "HighLine::Terminal::UnixStty",
+        "method": "restore_mode"
+      },
+      "user_input": "@state",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "55ccf6a9a5c057cd8244d70d016b405b5aab9c89c8749b9543d7a4dcb462430c",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/activerecord-7.0.8/lib/active_record/tasks/sqlite_database_tasks.rb",
+      "line": 62,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`sqlite3 #{extra_flags.join(\" \")} #{db_config.database} < \"#{filename}\"`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ActiveRecord::Tasks::SQLiteDatabaseTasks",
+        "method": "structure_load"
+      },
+      "user_input": "extra_flags.join(\" \")",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "57be7fb31df142ffcc679c4b3b26b6f30d9f32f7a95b464a0f8e73c0d34a341c",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/byebug-11.1.3/lib/byebug/commands/edit.rb",
+      "line": 40,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "Kernel.system((\"#{editor} +#{line} #{file}\" or \"#{editor} #{file}\"))",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Byebug::EditCommand",
+        "method": "execute"
+      },
+      "user_input": "editor",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "588ecada4c92c75f2f5f0ae21702a355fa8a55b110914865a4d322e8f897a053",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/capistrano-3.18.0/features/support/vagrant_helpers.rb",
+      "line": 20,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "Open3.capture3(\"#{VAGRANT_BIN} #{command}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "VagrantHelpers",
+        "method": "vagrant_cli_command"
+      },
+      "user_input": "VAGRANT_BIN",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "61278d229f510d3b29c13a8339d8edc7e5e7be8ab92428e921050c5a5ff0a3c4",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/bundler/gems/epi_deploy-5fb56ca7d36b/lib/epi_deploy/git_wrapper.rb",
+      "line": 72,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "Kernel.system(\"git push origin :refs/tags/#{stage}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "EpiDeploy::GitWrapper",
+        "method": "update_tag_commit"
+      },
+      "user_input": "stage",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "7641d899d4141e9ba07b17db83de0856edd046266629e920ee06d8cc40c2fa8f",
+      "check_name": "SQL",
+      "message": "Possible SQL injection",
+      "file": "t/ruby/3.1.0/gems/activerecord-session_store-2.1.0/lib/active_record/session_store/sql_bypass.rb",
+      "line": 63,
+      "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "connection.select_one(\"SELECT #{connection.quote_column_name(data_column)} AS data FROM #{@@table_name} WHERE #{connection.quote_column_name(@@session_id_column)}=#{connection.quote(session_id)}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ActiveRecord::SessionStore::SqlBypass",
+        "method": "s(:self).find_by_session_id"
+      },
+      "user_input": "@@table_name",
+      "confidence": "Medium",
+      "cwe_id": [
+        89
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "7ed13fd144fec6ccc1559a028b855acf7cf588bb72b98bb22243d5bd46dea8e4",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/package_json-0.1.0/lib/package_json/managers/base.rb",
+      "line": 18,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "Open3.capture3(\"#{binary} --version\", :chdir => package_json.directory)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "PackageJson::Managers::PackageJson::Base",
+        "method": "version"
+      },
+      "user_input": "binary",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Denial of Service",
+      "warning_code": 76,
+      "fingerprint": "926d49dd10b05cce0a314e246fe5a12f3e19dfdc15a76f439fbf26c0f764cd71",
+      "check_name": "RegexDoS",
+      "message": "Model attribute used in regular expression",
+      "file": "t/ruby/3.1.0/gems/actionpack-7.0.8/lib/action_dispatch/middleware/templates/rescues/invalid_statement.html.erb",
+      "line": 16,
+      "link": "https://brakemanscanner.org/docs/warning_types/denial_of_service/",
+      "code": "/#{ActionMailbox::InboundEmail.table_name}/",
+      "render_path": null,
+      "location": {
+        "type": "template",
+        "template": "t/ruby/3.1.0/gems/actionpack-7.0.8/lib/action_dispatch/middleware/templates/rescues/invalid_statement"
+      },
+      "user_input": "ActionMailbox::InboundEmail.table_name",
+      "confidence": "Medium",
+      "cwe_id": [
+        20,
+        185
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "94783483457daa92ba84e836dea519e1679eeb1cdc6e23b9774b74fcfcc6e781",
+      "check_name": "SQL",
+      "message": "Possible SQL injection",
+      "file": "t/ruby/3.1.0/gems/cancancan-3.5.0/lib/cancan/model_adapters/strategies/joined_alias_exists_subquery.rb",
+      "line": 10,
+      "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "model_class.joins(\"JOIN #{quoted_table_name} AS #{quoted_aliased_table_name} ON #{quoted_aliased_table_name}.#{quoted_primary_key} = #{quoted_table_name}.#{quoted_primary_key}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "CanCan::ModelAdapters::CanCan::ModelAdapters::Strategies::JoinedAliasExistsSubquery",
+        "method": "execute!"
+      },
+      "user_input": "quoted_aliased_table_name",
+      "confidence": "Weak",
+      "cwe_id": [
+        89
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "9d53c0744b420146abb63d49152b526f158ebff20854a0673cb8b24c719f99f5",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/whenever-1.0.0/lib/whenever/command_line.rb",
+      "line": 77,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "IO.popen(\"#{options[:crontab_command]} #{\"-u #{options[:user]}\"} -\", \"r+\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Whenever::CommandLine",
+        "method": "write_crontab"
+      },
+      "user_input": "options[:crontab_command]",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "9f14a56421e9984c89f6c0a3cb89c870355ab3182f90f51039b9d5704e0bb54c",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/net-ssh-7.2.1/lib/net/ssh/proxy/command.rb",
+      "line": 61,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "IO.popen(command_line_template.gsub(/%(.)/) do\n case $1\nwhen \"h\" then\n  host\nwhen \"p\" then\n  port.to_s\nwhen \"r\" then\n  remote_user = (connection_options and connection_options[:remote_user])\n  if connection_options and connection_options[:remote_user] then\n    connection_options and connection_options[:remote_user]\n  else\n    raise(ArgumentError, \"remote user name not available\")\n  end\nwhen \"%\" then\n  \"%\"\nelse\n  raise(ArgumentError, \"unknown key: #{$1}\")\nend\n end, \"r+\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Net::SSH::Proxy::Command",
+        "method": "open"
+      },
+      "user_input": "$1",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "9f1f5b93605919c897a50af1a83a40fc98b022f1dcd0bd8428b9cdec39b671dc",
+      "check_name": "SQL",
+      "message": "Possible SQL injection",
+      "file": "t/ruby/3.1.0/gems/nokogiri-1.16.0-x86_64-linux/lib/nokogiri/xml/pp/character_data.rb",
+      "line": 10,
+      "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "pp.group(2, \"#(#{self.class.name.split(\"::\").last} \", \")\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Nokogiri::XML::PP::CharacterData",
+        "method": "pretty_print"
+      },
+      "user_input": "self.class.name.split(\"::\").last",
+      "confidence": "Weak",
+      "cwe_id": [
+        89
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "ad84e2cf31a1a2978d95fed909e611a49e335d51d5941655da0921ded4aeb2df",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/bundler/gems/epi_deploy-5fb56ca7d36b/lib/epi_deploy/release.rb",
+      "line": 94,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "Kernel.system(\"bundle exec cap #{environment} #{(\"deploy_all\" or \"deploy\")} target=#{reference}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "EpiDeploy::Release",
+        "method": "run_cap_deploy_to"
+      },
+      "user_input": "environment",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "b488d1281f971df820ed446c96100402c756b65b3db9b41f4a7da552b25e0c74",
+      "check_name": "SQL",
+      "message": "Possible SQL injection",
+      "file": "t/ruby/3.1.0/gems/cancancan-3.5.0/lib/cancan/model_adapters/strategies/joined_alias_each_rule_as_exists_subquery.rb",
+      "line": 10,
+      "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "model_class.joins(\"JOIN #{quoted_table_name} AS #{quoted_aliased_table_name} ON #{quoted_aliased_table_name}.#{quoted_primary_key} = #{quoted_table_name}.#{quoted_primary_key}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "CanCan::ModelAdapters::CanCan::ModelAdapters::Strategies::JoinedAliasEachRuleAsExistsSubquery",
+        "method": "execute!"
+      },
+      "user_input": "quoted_aliased_table_name",
+      "confidence": "Weak",
+      "cwe_id": [
+        89
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "b8853ff6ff923f0390dd2dd30c49edce0aa2e4ad6662a08611b0fe024a8f57c2",
+      "check_name": "SQL",
+      "message": "Possible SQL injection",
+      "file": "t/ruby/3.1.0/gems/cancancan-3.5.0/lib/cancan/model_adapters/strategies/joined_alias_each_rule_as_exists_subquery.rb",
+      "line": 41,
+      "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "model_class.select(\"1\").joins(joins_hash).left_joins(left_joins_hash).where(\"#{quoted_table_name}.#{quoted_primary_key} = #{quoted_aliased_table_name}.#{quoted_primary_key}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "CanCan::ModelAdapters::CanCan::ModelAdapters::Strategies::JoinedAliasEachRuleAsExistsSubquery",
+        "method": "sub_query_for_rules_and_join_hashes"
+      },
+      "user_input": "quoted_aliased_table_name",
+      "confidence": "Weak",
+      "cwe_id": [
+        89
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "b8aa89fcf835ba85c92aeb208a187d772738b8a2b988b6bce5cae8b92840919c",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/git-1.19.1/lib/git/base.rb",
+      "line": 72,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "Open3.capture2(\"#{Git::Base.config.binary_path} -c core.quotePath=true -c color.ui=false rev-parse --show-toplevel 2>&1\", :chdir => File.expand_path(working_dir))",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Git::Base",
+        "method": "s(:self).root_of_worktree"
+      },
+      "user_input": "Git::Base.config.binary_path",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "c8d1cecea29048391c715f62039eb077acb0cadbca77a55f064d9c2225259d29",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/thor-1.3.0/lib/thor/actions.rb",
+      "line": 267,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "Open3.capture2e(*[config[:env]], \"#{config[:with]} #{command}\".to_s)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Thor",
+        "method": "run"
+      },
+      "user_input": "config[:with]",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "cc66eeaa0025b7d2c43a319d05339b84eeb37ebd0178528997f4145d64bcce0b",
+      "check_name": "SQL",
+      "message": "Possible SQL injection",
+      "file": "t/ruby/3.1.0/gems/activerecord-7.0.8/lib/active_record/delegated_type.rb",
+      "line": 234,
+      "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "where(\"#{role}_type\" => type)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ActiveRecord::DelegatedType",
+        "method": "define_delegated_type_methods"
+      },
+      "user_input": "role",
+      "confidence": "Medium",
+      "cwe_id": [
+        89
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "cc7f661b76e4783ae3a214191899b051893daa1e4e779e3a7414dd5b481197cd",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/bundler/gems/epi_deploy-5fb56ca7d36b/lib/epi_deploy/git_wrapper.rb",
+      "line": 67,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "Kernel.system(\"git branch -f #{stage} #{commit}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "EpiDeploy::GitWrapper",
+        "method": "update_branch_commit"
+      },
+      "user_input": "stage",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "cdaad07740b5073bc773118976675a7406ed3668a3913a60d216ed816a76086e",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/mail-2.8.1/lib/mail/network/delivery_methods/sendmail.rb",
+      "line": 106,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "popen(\"#{settings[:location]} #{\"#{settings[:arguments]} #{\"-f #{shellquote(envelope.from)}\"} --\"} #{destinations_for(envelope).map do\n shellquote(to)\n end.join(\" \")}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Mail::Sendmail",
+        "method": "old_deliver"
+      },
+      "user_input": "settings[:location]",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "cdf6c7ba8b0f0d9b887c152acd6fa6dd5efd99b07848b9ee17af2e79138cb0ab",
+      "check_name": "SQL",
+      "message": "Possible SQL injection",
+      "file": "t/ruby/3.1.0/gems/brakeman-6.1.1/bundle/ruby/3.0.0/gems/sexp_processor-4.17.0/lib/sexp.rb",
+      "line": 276,
+      "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "q.group(1, \"s(\", \").line(#{line})\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Sexp",
+        "method": "pretty_print"
+      },
+      "user_input": "line",
+      "confidence": "Weak",
+      "cwe_id": [
+        89
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "dcadaf38c901e990a161e4392cd2db84bb984fe50360e42863380910388615e7",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/thor-1.3.0/lib/thor/shell/basic.rb",
+      "line": 375,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "system(\"#{merge_tool} \\\"#{Tempfile.new.path}\\\" \\\"#{destination}\\\"\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Thor::Shell::Thor::Basic",
+        "method": "merge"
+      },
+      "user_input": "merge_tool",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "ddcbefd95343f50a99319d3c94a2532b9634c9cbc84d5ea8d06836003bba83f8",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/railties-7.0.8/lib/rails/commands/encrypted/encrypted_command.rb",
+      "line": 59,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "system(\"#{ENV[\"EDITOR\"]} #{tmp_path}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Rails::Command::EncryptedCommand",
+        "method": "change_encrypted_file_in_system_editor"
+      },
+      "user_input": "ENV[\"EDITOR\"]",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Default Routes",
+      "warning_code": 12,
+      "fingerprint": "e5f284ab19dfaf323375a8b8e5f11124acd7d407260eaec8e9aea607ce9f93f8",
+      "check_name": "DefaultRoutes",
+      "message": "Any public method in `(?-mix:[a-zA-Z]+)Controller` can be used as an action for `get` requests.",
+      "file": "config/routes.rb",
+      "line": null,
+      "link": "https://brakemanscanner.org/docs/warning_types/default_routes/",
+      "code": null,
+      "render_path": null,
+      "location": {
+        "type": "controller",
+        "controller": "(?-mix:[a-zA-Z]+)Controller"
+      },
+      "user_input": null,
+      "confidence": "Medium",
+      "cwe_id": [
+        22
+      ],
+      "note": "Too Bad"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "e93cabcde8795921f400eaa40b9f88252671853af5bd80c36fc39ec493cc1038",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/selenium-webdriver-4.17.0/lib/selenium/webdriver/common/platform.rb",
+      "line": 118,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`cygpath #{\"#{\"--#{k}\"}\"} \"#{path}\"`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Selenium::WebDriver::Platform",
+        "method": "cygwin_path"
+      },
+      "user_input": "k",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "ebcded0db79c4a0523ffc0671e15397956b6276e148a5bfc9c3a0a82637b96e3",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "t/ruby/3.1.0/gems/daemons-1.4.1/lib/daemons/application_group.rb",
+      "line": 74,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`ps auxw | grep -v grep | awk '{print $2, $11, $12}' | grep #{app_name}`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Daemons::ApplicationGroup",
+        "method": "find_applications_by_app_name"
+      },
+      "user_input": "app_name",
+      "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "f65976be3a89caae40645a9737cd43805ef4a53434bdf147889d0c6f096bb146",
+      "check_name": "SQL",
+      "message": "Possible SQL injection",
+      "file": "t/ruby/3.1.0/gems/nokogiri-1.16.0-x86_64-linux/lib/nokogiri/xml/pp/node.rb",
+      "line": 29,
+      "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "pp.group(2, \"#(#{self.class.name.split(\"::\").last}:#{format(\"0x%x\", object_id)} {\", \"})\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Nokogiri::XML::PP::Node",
+        "method": "pretty_print"
+      },
+      "user_input": "self.class.name.split(\"::\").last",
+      "confidence": "Weak",
+      "cwe_id": [
+        89
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "f9c40dd81df9eba07a6f821441ae7d9af49cd70400a16f585c9fefec25ab4577",
+      "check_name": "SQL",
+      "message": "Possible SQL injection",
+      "file": "t/ruby/3.1.0/gems/cancancan-3.5.0/lib/cancan/model_adapters/strategies/joined_alias_exists_subquery.rb",
+      "line": 24,
+      "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "model_class.unscoped.select(\"1\").left_joins(joins).where(*where_conditions).where(\"#{quoted_table_name}.#{quoted_primary_key} = #{quoted_aliased_table_name}.#{quoted_primary_key}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "CanCan::ModelAdapters::CanCan::ModelAdapters::Strategies::JoinedAliasExistsSubquery",
+        "method": "joined_alias_exists_subquery_inner_query"
+      },
+      "user_input": "quoted_aliased_table_name",
+      "confidence": "Weak",
+      "cwe_id": [
+        89
+      ],
+      "note": ""
+    }
+  ],
+  "updated": "2024-02-12 15:33:04 +0000",
+  "brakeman_version": "6.1.1"
+}

@@ -1,0 +1,1455 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Diginity Therapy",
+    "description": "API documentation generated from our shared postman workspace.\
+\
+Please also see [https://dignispace.test.willjay.rocks/docs](https://dignispace.test.willjay.rocks/docs) for a version of this page that does not require epigenesys authentication.",
+    "version": "1.0.0",
+    "contact": {}
+  },
+  "servers": [
+    {
+      "url": "https://dignispace.test.willjay.rocks/"
+    }
+  ],
+  "paths": {
+    "/api/auth/": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Current User Information",
+        "description": "Current User Information",
+        "operationId": "currentUserInformation",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Login",
+        "description": "Login",
+        "operationId": "login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "patient1@shef.ac.uk"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "qwe"
+                  }
+                }
+              },
+              "examples": {
+                "Login": {
+                  "value": {
+                    "email": "patient1@shef.ac.uk",
+                    "password": "qwe"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Logout",
+        "description": "Logout",
+        "operationId": "logout",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/confirmation": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Confirm an email confirmation",
+        "description": "Confirm an email confirmation",
+        "operationId": "confirmAnEmailConfirmation",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "example": "vJ1dpc4mEooYxtcyIrjt6g"
+                  }
+                }
+              },
+              "examples": {
+                "Confirm an email confirmation": {
+                  "value": {
+                    "token": "vJ1dpc4mEooYxtcyIrjt6g"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Send an email confirmation",
+        "description": "Send an email confirmation",
+        "operationId": "sendAnEmailConfirmation",
+        "parameters": [
+          {
+            "name": "jillemail",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "qwq"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "hello@world.com"
+                  }
+                }
+              },
+              "examples": {
+                "Send an email confirmation": {
+                  "value": {
+                    "email": "hello@world.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/alerts": {
+      "get": {
+        "tags": [
+          "Alerts"
+        ],
+        "summary": "Get alerts",
+        "description": "Get alerts",
+        "operationId": "getAlerts",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "test": {
+                    "type": "string",
+                    "example": "this is test"
+                  },
+                  "test2": {
+                    "type": "string",
+                    "example": "this is test 2"
+                  }
+                }
+              },
+              "examples": {
+                "Get alerts": {
+                  "value": {
+                    "test": "this is test",
+                    "test2": "this is test 2"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/alerts/{id}": {
+      "put": {
+        "tags": [
+          "Alerts"
+        ],
+        "summary": "Edit an alert",
+        "description": "Edit an alert",
+        "operationId": "editAnAlert",
+        "parameters": [
+          {
+            "name": "jillauth",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "HTnuGcib-TW7naPX37FpaQ"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "active": {
+                    "type": "number",
+                    "example": 11
+                  }
+                }
+              },
+              "examples": {
+                "Edit an alert": {
+                  "value": {
+                    "active": 11
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "1"
+          }
+        }
+      ]
+    },
+    "/api/groups/{id}": {
+      "get": {
+        "tags": [
+          "User groups and user roles"
+        ],
+        "summary": "Get a group",
+        "description": "Get a group",
+        "operationId": "getAGroup",
+        "parameters": [
+          {
+            "name": "jillauth",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "HTnuGcib-TW7naPX37FpaQ"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User groups and user roles"
+        ],
+        "summary": "release content in user group (edit user group)",
+        "description": "release content in user group (edit user group)",
+        "operationId": "releaseContentInUserGroupEditUserGroup",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "content_released": {
+                    "type": "boolean",
+                    "example": false
+                  }
+                }
+              },
+              "examples": {
+                "release content in user group (edit user group)": {
+                  "value": {
+                    "content_released": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "1"
+          }
+        }
+      ]
+    },
+    "/api/roles/": {
+      "get": {
+        "tags": [
+          "User groups and user roles"
+        ],
+        "summary": "Get a list of a users associated groups",
+        "description": "Get a list of a users associated groups",
+        "operationId": "getAListOfAUsersAssociatedGroups",
+        "parameters": [
+          {
+            "name": "jillauth",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "HTnuGcib-TW7naPX37FpaQ"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "examples": {
+                "Get a list of a users associated groups": {
+                  "value": ""
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/roles": {
+      "post": {
+        "tags": [
+          "User groups and user roles"
+        ],
+        "summary": "Add a viewer to a group",
+        "description": "Add a viewer to a group",
+        "operationId": "addAViewerToAGroup",
+        "parameters": [
+          {
+            "name": "jillauth",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "HTnuGcib-TW7naPX37FpaQ"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "viewer3@shef.ac.uk"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "bill"
+                  },
+                  "user_group_id": {
+                    "type": "number",
+                    "example": 3
+                  }
+                }
+              },
+              "examples": {
+                "Add a viewer to a group": {
+                  "value": {
+                    "email": "viewer3@shef.ac.uk",
+                    "name": "bill",
+                    "user_group_id": 3
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/roles/{id}": {
+      "delete": {
+        "tags": [
+          "User groups and user roles"
+        ],
+        "summary": "Remove a viewer from a group",
+        "description": "Remove a viewer from a group",
+        "operationId": "removeAViewerFromAGroup",
+        "parameters": [
+          {
+            "name": "jillauth",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "HTnuGcib-TW7naPX37FpaQ"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "qwe@qwe.qwe"
+                  },
+                  "user_group_id": {
+                    "type": "number",
+                    "example": 1
+                  }
+                }
+              },
+              "examples": {
+                "Remove a viewer from a group": {
+                  "value": {
+                    "email": "qwe@qwe.qwe",
+                    "user_group_id": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "10"
+          }
+        }
+      ]
+    },
+    "/api/groups": {
+      "post": {
+        "tags": [
+          "User groups and user roles"
+        ],
+        "summary": "Create a group",
+        "description": "Create a group",
+        "operationId": "createAGroup",
+        "parameters": [
+          {
+            "name": "jillauth",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "HTnuGcib-TW7naPX37FpaQ"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "bill"
+                  },
+                  "patient_email": {
+                    "type": "string",
+                    "example": "patient2@shef.ac.uk"
+                  }
+                }
+              },
+              "examples": {
+                "Create a group": {
+                  "value": {
+                    "name": "bill",
+                    "patient_email": "patient2@shef.ac.uk"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/questions": {
+      "get": {
+        "tags": [
+          "Questions"
+        ],
+        "summary": "get all questions",
+        "description": "get all questions",
+        "operationId": "getAllQuestions",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Questions"
+        ],
+        "summary": "create a question",
+        "description": "create a question",
+        "operationId": "createAQuestion",
+        "parameters": [
+          {
+            "name": "1",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{{token}}"
+            },
+            "description": "question"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "contents": {
+                    "type": "string",
+                    "example": "example question"
+                  },
+                  "sensitivity": {
+                    "type": "string",
+                    "example": "Basic"
+                  },
+                  "title": {
+                    "type": "string",
+                    "example": "eample title"
+                  }
+                }
+              },
+              "examples": {
+                "create a question": {
+                  "value": {
+                    "contents": "example question",
+                    "sensitivity": "Basic",
+                    "title": "eample title"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/questions/{id}": {
+      "delete": {
+        "tags": [
+          "Questions"
+        ],
+        "summary": "delete a question",
+        "description": "delete a question",
+        "operationId": "deleteAQuestion",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "examples": {
+                "delete a question": {
+                  "value": ""
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "1"
+          }
+        }
+      ]
+    },
+    "/api/users": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "List all users",
+        "description": "List all users",
+        "operationId": "listAllUsers",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Create User",
+        "description": "Create User",
+        "operationId": "createUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "qweewqqwe@qwe.qwe"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "qwe2 ewq"
+                  },
+                  "role": {
+                    "type": "string",
+                    "example": "ROLE_ADMIN"
+                  }
+                }
+              },
+              "examples": {
+                "Create User": {
+                  "value": {
+                    "email": "qweewqqwe@qwe.qwe",
+                    "name": "qwe2 ewq",
+                    "role": "ROLE_ADMIN"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/users/{id}": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Edit (suspend, role,email only for admin, password reset only for current user)",
+        "description": "Edit (suspend, role,email only for admin, password reset only for current user)",
+        "operationId": "editSuspendRoleEmailOnlyForAdminPasswordResetOnlyForCurrentUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "william@willjay.rocks"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "qwe2 ewq"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "qweqwe"
+                  },
+                  "role": {
+                    "type": "string",
+                    "example": "ROLE_ADMIN"
+                  },
+                  "suspended": {
+                    "type": "boolean",
+                    "example": false
+                  }
+                }
+              },
+              "examples": {
+                "Edit (suspend, role,email only for admin, password reset only for current user)": {
+                  "value": {
+                    "email": "william@willjay.rocks",
+                    "name": "qwe2 ewq",
+                    "password": "qweqwe",
+                    "role": "ROLE_ADMIN",
+                    "suspended": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "1"
+          }
+        }
+      ]
+    },
+    "/api/potential_edits/{id}": {
+      "get": {
+        "tags": [
+          "Potential Edits"
+        ],
+        "summary": "get an edit by question id",
+        "description": "get an edit by question id",
+        "operationId": "getAnEditByQuestionId",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Potential Edits"
+        ],
+        "summary": "Delete edit (reject edit)",
+        "description": "Delete edit (reject edit)",
+        "operationId": "deleteEditRejectEdit",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "2"
+          }
+        }
+      ]
+    },
+    "/api/potential_edits": {
+      "post": {
+        "tags": [
+          "Potential Edits"
+        ],
+        "summary": "Create an edit",
+        "description": "Create an edit",
+        "operationId": "createAnEdit",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "accepted": {
+                    "type": "number",
+                    "example": 0
+                  },
+                  "answer_id": {
+                    "type": "number",
+                    "example": 2
+                  },
+                  "editContents": {
+                    "type": "string",
+                    "example": "example edit contents"
+                  }
+                }
+              },
+              "examples": {
+                "Create an edit": {
+                  "value": {
+                    "accepted": 0,
+                    "answer_id": 2,
+                    "editContents": "example edit contents"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/potential_edits/accept/{id}": {
+      "post": {
+        "tags": [
+          "Potential Edits"
+        ],
+        "summary": "Accept edit (replace answer)",
+        "description": "Accept edit (replace answer)",
+        "operationId": "acceptEditReplaceAnswer",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "2"
+          }
+        }
+      ]
+    },
+    "/api/answer/{id}": {
+      "get": {
+        "tags": [
+          "Answer"
+        ],
+        "summary": "Get answers for a user group",
+        "description": "Get answers for a user group",
+        "operationId": "getAnswersForAUserGroup",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Answer"
+        ],
+        "summary": "Edit answer",
+        "description": "Edit answer",
+        "operationId": "editAnswer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "bubbles": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": "3"
+                    },
+                    "example": [
+                      "3",
+                      "2"
+                    ]
+                  },
+                  "contents": {
+                    "type": "string",
+                    "example": "i really really really despise you"
+                  }
+                }
+              },
+              "examples": {
+                "Edit answer": {
+                  "value": {
+                    "bubbles": [
+                      "3",
+                      "2"
+                    ],
+                    "contents": "i really really really despise you"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "4"
+          }
+        }
+      ]
+    },
+    "/api/answer": {
+      "post": {
+        "tags": [
+          "Answer"
+        ],
+        "summary": "Create answer",
+        "description": "Create answer",
+        "operationId": "createAnswer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "question_id": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "user_group_id": {
+                    "type": "number",
+                    "example": 1
+                  }
+                }
+              },
+              "examples": {
+                "Create answer": {
+                  "value": {
+                    "question_id": 1,
+                    "user_group_id": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/flag": {
+      "get": {
+        "tags": [
+          "Flags"
+        ],
+        "summary": "Get all active flags",
+        "description": "Get all active flags",
+        "operationId": "getAllActiveFlags",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Flags"
+        ],
+        "summary": "add a flag",
+        "description": "add a flag",
+        "operationId": "addAFlag",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "active": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "answer_id": {
+                    "type": "number",
+                    "example": 2
+                  },
+                  "reason": {
+                    "type": "string",
+                    "example": "funny"
+                  }
+                }
+              },
+              "examples": {
+                "add a flag": {
+                  "value": {
+                    "active": true,
+                    "answer_id": 2,
+                    "reason": "funny"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/flag/{id}": {
+      "put": {
+        "tags": [
+          "Flags"
+        ],
+        "summary": "update a flag",
+        "description": "update a flag",
+        "operationId": "updateAFlag",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "example": "funny2"
+                  }
+                }
+              },
+              "examples": {
+                "update a flag": {
+                  "value": {
+                    "reason": "funny2"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "1"
+          }
+        }
+      ]
+    },
+    "/api/preference": {
+      "get": {
+        "tags": [
+          "Preference"
+        ],
+        "summary": "Get all preferences for current user",
+        "description": "Get all preferences for current user",
+        "operationId": "getAllPreferencesForCurrentUser",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Preference"
+        ],
+        "summary": "Create preference",
+        "description": "Create preference",
+        "operationId": "createPreference",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "name"
+                  },
+                  "value": {
+                    "type": "string",
+                    "example": "pref"
+                  }
+                }
+              },
+              "examples": {
+                "Create preference": {
+                  "value": {
+                    "name": "name",
+                    "value": "pref"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/preference/{id}": {
+      "put": {
+        "tags": [
+          "Preference"
+        ],
+        "summary": "Edit a preference",
+        "description": "Edit a preference",
+        "operationId": "editAPreference",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "def val"
+                  },
+                  "value": {
+                    "type": "string",
+                    "example": "pref val"
+                  }
+                }
+              },
+              "examples": {
+                "Edit a preference": {
+                  "value": {
+                    "name": "def val",
+                    "value": "pref val"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "1"
+          }
+        }
+      ]
+    },
+    "/api/emotional_support_request": {
+      "post": {
+        "tags": [
+          "Emotional Support Request"
+        ],
+        "summary": "Create request",
+        "description": "Create request",
+        "operationId": "createRequest",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/emotional_support_request/{id}": {
+      "delete": {
+        "tags": [
+          "Emotional Support Request"
+        ],
+        "summary": "Delete a request",
+        "description": "Delete a request",
+        "operationId": "deleteARequest",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "1"
+          }
+        }
+      ]
+    },
+    "/api/bubble/{id}": {
+      "get": {
+        "tags": [
+          "Bubbles"
+        ],
+        "summary": "List bubbles for user group",
+        "description": "List bubbles for user group",
+        "operationId": "listBubblesForUserGroup",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Bubbles"
+        ],
+        "summary": "Update bubble",
+        "description": "Update bubble",
+        "operationId": "updateBubble",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "family"
+                  },
+                  "user_group_id": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "users": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": "7"
+                    },
+                    "example": [
+                      "7",
+                      "6"
+                    ]
+                  }
+                }
+              },
+              "examples": {
+                "Update bubble": {
+                  "value": {
+                    "name": "family",
+                    "user_group_id": 1,
+                    "users": [
+                      "7",
+                      "6"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "1"
+          }
+        }
+      ]
+    },
+    "/api/bubble/": {
+      "post": {
+        "tags": [
+          "Bubbles"
+        ],
+        "summary": "Create",
+        "description": "Create",
+        "operationId": "create",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "family"
+                  },
+                  "user_group_id": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "users": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": "7"
+                    },
+                    "example": [
+                      "7"
+                    ]
+                  }
+                }
+              },
+              "examples": {
+                "Create": {
+                  "value": {
+                    "name": "family",
+                    "user_group_id": 1,
+                    "users": [
+                      "7"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "apiKey": {
+        "type": "apiKey",
+        "name": "JILLAUTH",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "apiKey": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Auth"
+    },
+    {
+      "name": "Alerts"
+    },
+    {
+      "name": "User groups and user roles"
+    },
+    {
+      "name": "Questions"
+    },
+    {
+      "name": "User"
+    },
+    {
+      "name": "Potential Edits"
+    },
+    {
+      "name": "Answer"
+    },
+    {
+      "name": "Flags"
+    },
+    {
+      "name": "Preference"
+    },
+    {
+      "name": "Emotional Support Request"
+    },
+    {
+      "name": "Bubbles"
+    }
+  ]
+}
